@@ -6,6 +6,11 @@ import GlobalStyle from "./conponents/GlobalStyle";
 // import Components
 import AboutUs from "./pages/AboutUs";
 import Nav from "./conponents/Nav";
+import ContactUs from "./pages/ContactUs";
+import OurWork from "./pages/OurWork";
+
+// Router
+import { Switch, Route } from 'react-router-dom';
 
 
 function App() {
@@ -13,7 +18,20 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Nav />
-      <AboutUs />
+
+      <Switch>
+        <Route path="/" exact >
+          <AboutUs />
+        </Route>
+
+        <Route path="/work">
+          <OurWork />
+        </Route>
+
+        <Route path="/contact">
+          <ContactUs />
+        </Route>
+      </Switch>
     </div>
   );
 }
