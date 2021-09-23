@@ -5,6 +5,10 @@ import { useHistory } from 'react-router'
 // data
 import { MovieState } from '../movieState'
 
+// Animation
+import { motion } from 'framer-motion';
+import { pageAnimation } from '../animation';
+
 const MovieDetail = () => {
     const history = useHistory() // save object historie browser
     const url = history.location.pathname; // uloží url z lišty prehliadača
@@ -20,30 +24,30 @@ const MovieDetail = () => {
     return (
         <>
         {movie && (
-        <Details>
-            <HeadLine>
-            <h2>{movie.title}</h2>
-            <img src={movie.mainImg} alt="movie" />
-            </HeadLine>
-            <Awards>
-                {movie.awards.map((award) => (
-                    <Award 
-                        title={award.title}
-                        description={award.description}
-                        key={award.title}
-                    />
-                ))}
-            </Awards>
-            <ImageDisplay>
-                <img src={movie.secondaryImg} alt="movie" />
-            </ImageDisplay>
-        </Details>
+            <Details  exit="exit" variants={pageAnimation} initial="hidden" animate="show">
+                <HeadLine>
+                    <h2>{movie.title}</h2>
+                    <img src={movie.mainImg} alt="movie" />
+                </HeadLine>
+                <Awards>
+                    {movie.awards.map((award) => (
+                        <Award 
+                            title={award.title}
+                            description={award.description}
+                            key={award.title}
+                        />
+                    ))}
+                </Awards>
+                <ImageDisplay>
+                    <img src={movie.secondaryImg} alt="movie" />
+                </ImageDisplay>
+            </Details>
         )}
         </>
     )
 }
 
-const Details = styled.div`
+const Details = styled(motion.div)`
     color: white;
 `
 const HeadLine = styled.div`
