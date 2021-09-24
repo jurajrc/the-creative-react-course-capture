@@ -1,5 +1,8 @@
 import React from 'react'
 
+// component
+import Wave from './Wave'
+
 // import Image
 import home1 from '../img/home1.png'
 
@@ -41,6 +44,7 @@ const AboutSection = () => {
                 <Image>
                     <motion.img variants={zoomImg} src={home1} alt="guy with a camera" />
                 </Image>
+                <Wave />
         </About>
     )
 }
