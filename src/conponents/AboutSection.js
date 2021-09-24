@@ -6,6 +6,10 @@ import home1 from '../img/home1.png'
 // Styled
 import { About, Description, Image, Hide } from '../styles'
 
+// Animation 
+import { motion } from 'framer-motion'
+import { titleAnim, fade, zoomImg } from '../animation'
+
 
 
 const AboutSection = () => {
@@ -14,28 +18,28 @@ const AboutSection = () => {
             <Description>
                 <div  className="title">
                     <Hide>
-                        <h2 >
+                        <motion.h2 variants={titleAnim} >
                                 We work to make
-                        </h2>
+                        </motion.h2>
                     </Hide>
                     <Hide>
-                        <h2 >
+                        <motion.h2 variants={titleAnim} >
                                 your <span>dreams</span> come
-                        </h2>
+                        </motion.h2>
                     </Hide>
                     <Hide>
-                        <h2  >
+                        <motion.h2 variants={titleAnim} >
                                 true.
-                        </h2>
+                        </motion.h2>
                     </Hide>
                 </div>
-                <p>
+                <motion.p variants={fade}>
                     Contact us fot any photography or videography ideas you have. We have professionals with amazing skills.
-                </p>
-                <button>Contact Us</button>
+                </motion.p>
+                <motion.button variants={fade} >Contact Us</motion.button>
             </Description>
                 <Image>
-                    <img src={home1} alt="guy with a camera" />
+                    <motion.img variants={zoomImg} src={home1} alt="guy with a camera" />
                 </Image>
         </About>
     )
