@@ -77,6 +77,8 @@ export const sliderContainer = {
     }
 }
 
+// Scroll animation
+
 export const scrollReveal = {
   hidden: { 
       opacity: 0, 
