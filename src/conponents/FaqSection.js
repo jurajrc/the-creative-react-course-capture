@@ -72,6 +72,9 @@ const Faq = styled(About)`
     .question {
         padding: 3rem;
         cursor: pointer;
+        @media (max-width: 450px) {
+            padding: 1rem;
+        }
     }
     .answer {
         padding: 1rem 0rem;

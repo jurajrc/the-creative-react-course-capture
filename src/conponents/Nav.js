@@ -1,21 +1,57 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
+
+function useWindowSize() {
+    const [size , setSize] = useState([window.innerHeight, window.innerWidth])
+    useEffect(() => {
+        const handleResize = () => {
+            setSize([window.innerHeight, window.innerWidth])
+        }
+        window.addEventListener("resize", handleResize)
+        return () => {
+          window.removeEventListener("resize", handleResize)
+        }
+    })
+    return size
+}
 
 const Nav = () => {
+    const {pathname} = useLocation() 
+
+    const [heght, width] = useWindowSize()
+    //const widthUse = () => width > 1300 ? "50%" : "100%"
+    
+
     return (
         <StyledNav>
-            <h1><Link id="logo" to="/">Capture</Link></h1>
+            <h1><Link id="logo" to="/">Capture {width}</Link></h1>
             <ul>
                 <li>
                     <Link to="/">1. About Us</Link>
+                    <Line 
+                        transition={{duration: 0.75}}
+                        initial={{ width: "0%" }}
+                        animate={{ width: pathname === "/" ? (width > 1300 ? "50%" : "100%") : "0%" }}
+                     />
                 </li>
                 <li>
                     <Link to="/work">2. Our Work</Link>
+                    <Line 
+                        transition={{duration: 0.75}}
+                        initial={{ width: "0%" }}
+                        animate={{ width: pathname === "/work" ? (width > 1300 ? "50%" : "100%") : "0%" }}
+                     />
                 </li>
                 <li>
                     <Link to="/contact">3. Contact Us</Link>
+                    <Line 
+                        transition={{duration: 0.75}}
+                        initial={{ width: "0%" }}
+                        animate={{ width: pathname === "/contact" ? (width > 1300 ? "50%" : "100%") : "0%" }}
+                     />
                 </li>
             </ul>
         </StyledNav>
@@ -63,8 +99,23 @@ const StyledNav = styled.nav`
             justify-content: space-around;
             width: 100%;
             li {
-                padding: 1rem;
+                padding-left: 0;
             }
+        }
+    }
+`
+
+const Line = styled(motion.div)`
+    height: 0.3rem;
+    background: #23d997;
+    width: 0%;
+    position: absolute;
+    bottom: -80%;
+    left: 60%;
+    @media (max-width: 1300px) {
+        left: 0;
+        p {
+            padding-left: 0;
         }
     }
 `

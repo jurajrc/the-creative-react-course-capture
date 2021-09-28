@@ -10,11 +10,15 @@ const GlobalStyle = createGlobalStyle`
     }
 
     html {
+        font-size: 100%;
+
         @media (max-width: 1700px) {
             font-size: 75%;
         }
         @media (max-width: 600px) {
-        font-size: 60%;
+        font-size: 70%;
+        overflow-x: hidden;
+
     }
     }
 
@@ -22,6 +26,9 @@ const GlobalStyle = createGlobalStyle`
         background: #1b1b1b;
         font-family: 'Inter', sans-serif;
         overflow-x: hidden;
+        @media (max-width: 600px) {
+            overflow-x: hidden;
+        }
     }
 
     button {
@@ -63,6 +70,17 @@ const GlobalStyle = createGlobalStyle`
         color: #ccc;
         font-size: 1.4rem;
         line-height: 150%;
+    }
+    @media (max-width: 450px) {
+        h2 {
+            font-size: 2.5rem;
+        }
+        h4 {
+            font-size: 1.5rem;
+        }
+        p {
+            font-size: 1.2rem;
+        }
     }
 
 `

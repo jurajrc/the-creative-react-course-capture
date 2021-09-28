@@ -54,6 +54,9 @@ const HeadLine = styled.div`
     min-height: 90vh;
     padding-top: 20rem;
     position: relative;
+    @media (max-width: 450px) {
+        padding-top: 12rem;
+    }
     h2 {
         position: absolute;
         top: 10%;
@@ -79,6 +82,9 @@ const Awards = styled.div`
 `
 const AwardStyle = styled.div`
     padding: 5rem;
+    @media (max-width: 450px) {
+        padding: 2rem 1rem;
+    }
     h3 {
         font-size: 2rem;
     }

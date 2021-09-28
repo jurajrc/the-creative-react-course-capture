@@ -101,6 +101,17 @@ const Card = styled.div`
             padding: 1rem;
         }
     }
+    @media (max-width: 450px) {
+       padding: 0;
+       .icon {
+           flex-wrap: wrap;
+           padding-left: 2rem;
+           h3 {
+               margin-left: 4rem;
+           }
+
+       }
+    }
 `
 
 export default ServicesSection
